@@ -1,0 +1,26 @@
+[
+  {
+    "id": "vpta-introduction-20261006",
+    "fileName": "生产试井分析宣传简版 20261006.pptx",
+    "bytes": 44066827,
+    "sha256": "bd3d2fcb76222ca7c9381fa0fe8f891f8f05126cdd7855fa3f13b3b9f580bb96",
+    "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    "parts": [
+      {
+        "path": "downloads/vpta-introduction/bd3d2fcb76222ca7/part-1.bin",
+        "bytes": 16777216,
+        "sha256": "48098a84996397fcf7aa198b3a57d7178765465556e2eb2e9b6eb4f3749a7e20"
+      },
+      {
+        "path": "downloads/vpta-introduction/bd3d2fcb76222ca7/part-2.bin",
+        "bytes": 16777216,
+        "sha256": "56d9ec489fad7d152b0aaae19be60ecb373ea4058e53a1a833c5bcecb6ee30f0"
+      },
+      {
+        "path": "downloads/vpta-introduction/bd3d2fcb76222ca7/part-3.bin",
+        "bytes": 10512395,
+        "sha256": "89fc359faff0fc1a3faad052207155edd28715e5858595ddd08d7e19f11e441e"
+      }
+    ]
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "title": "Variable-rate Pressure Transient Analysis (VPTA)",
+  "intro": [
+    { "type": "p", "text": "Variable-rate Pressure Transient Analysis (VPTA) starts from dynamic data collected during production and studies the connection between production responses and reservoir flow characteristics. This website brings together the research approach, analysis methods and representative cases of VPTA, and shares related papers and supporting data for research exchange, method learning and case reproduction." },
+    { "type": "p", "text": "VPTA is a method of reservoir dynamic analysis that applies well-test analysis theory and methods to production data. It addresses the variable-rate, variable-pressure conditions encountered in actual oil and gas production. By solving for the pressure response function, it incorporates rate and pressure histories into a well-test interpretation framework to identify flow characteristics, estimate relevant parameters, and support production performance evaluation and forecasting. Under the corresponding conditions, VPTA establishes theoretical links with conventional PTA and RTA, connecting production data to well-test interpretation." }
+  ],
+  "tagline": "Read the reservoir's pulse through production data.",
+  "sections": [
+    {
+      "title": "Variable-rate Pressure Transient Analysis (VPTA)",
+      "blocks": [{ "type": "p", "text": "Variable-rate Pressure Transient Analysis (VPTA) extends the theory and methods of Pressure Transient Analysis (PTA) to the analysis of variable-rate, variable-pressure production data. VPTA retains the PTA analysis framework: it extracts the pressure response function from production pressure and rate histories, then performs flow diagnostics, straight-line analysis and parameter estimation. In this way, dynamic information from actual production is converted into a quantitative understanding of the well–reservoir system." }]
+    },
+    {
+      "title": "Unified mathematical relationships and theoretical framework",
+      "blocks": [{ "type": "p", "text": "Through a unified mathematical expression, VPTA establishes relationships between pressure, production rate, the pressure response function and material-balance time, providing a common theoretical description for PTA and Rate Transient Analysis (RTA). Subject to the corresponding model assumptions, this expression reduces to the general PTA expression under constant-rate conditions and to the general RTA expression under boundary-dominated flow conditions. Therefore, RTA can be regarded as a special case of VPTA under boundary-dominated flow conditions, while VPTA provides a theoretical bridge between conventional well-test analysis and production performance analysis.", "emphasis": "RTA can be regarded as a special case of VPTA under boundary-dominated flow conditions" }]
+    },
+    {
+      "title": "Integrated diagnostics using multiple characteristic curves",
+      "blocks": [{ "type": "p", "text": "Compared with traditional RTA type-curve analysis based on material-balance time, VPTA emphasizes integrated diagnostics within the PTA framework, jointly using pressure response and derivative curves, β curves, γ curves and other characteristic curves. Corroboration among these curves helps identify flow regimes and their transitions. The corresponding straight-line analysis relationships can then be selected to estimate well and reservoir parameters. This produces the workflow of ‘response extraction → integrated diagnostics → straight-line analysis → parameter interpretation’, grounding parameter estimation in flow identification and physical interpretation.", "emphasis": "response extraction → integrated diagnostics → straight-line analysis → parameter interpretation" }]
+    },
+    {
+      "title": "Explicit deconvolution and fast computation",
+      "blocks": [
+        { "type": "p", "text": "In mathematical terms, VPTA is an explicit deconvolution method: based on the convolution relationship between pressure and production rate, it solves for the pressure response function using explicit mathematical expressions, without prespecifying a flow regime. Flow regimes are identified after response extraction through integrated diagnostics using multiple characteristic curves.", "emphasis": "VPTA is an explicit deconvolution method" },
+        { "type": "p", "text": "This explicit solution reduces dependence on iterative solvers and related numerical control procedures used in numerical deconvolution, avoids some of the associated numerical solution issues, and enables fast computation. It provides a direct and efficient implementation approach for well-test interpretation of production data." }
+      ]
+    }
+  ],
+  "citations": [
+    "汤昌福，罗万静. 变产量生产试井分析理论与方法［J］. 现代地质，2026，40（3）：923-938. DOI：10.19657/j.geoscience.1000-8527.202511060144.",
+    "TANG Changfu，LUO Wanjing. Variable-rate Pressure Transient Analysis for Production Data with Analytical Deconvolution Method［J］. GEOSCIENCE，2026，40（3）：923-938. DOI：10.19657/j.geoscience.1000-8527.202511060144."
+  ]
+}

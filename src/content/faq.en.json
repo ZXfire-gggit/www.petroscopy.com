@@ -1,0 +1,118 @@
+[
+  {
+    "title": "Why do we need VPTA when PTA and RTA already exist?",
+    "shortTitle": "Why VPTA?",
+    "blocks": [
+      { "type": "p", "text": "The core problem VPTA seeks to address is how to extract reservoir responses from variable-rate, variable-pressure production records and perform flow diagnostics and parameter interpretation within the PTA framework.", "emphasis": "The core problem VPTA seeks to address is how to extract reservoir responses from variable-rate, variable-pressure production records and perform flow diagnostics and parameter interpretation within the PTA framework." },
+      { "type": "p", "text": "PTA and RTA are rooted in the same flow theory. However, different data conditions and engineering needs have led them to develop along different analytical paths." },
+      { "type": "p", "text": "PTA developed around pressure responses caused by changes in production rate, forming a methodology centered on pressure and derivative diagnostics, flow-regime identification and model interpretation. Dedicated tests can usually provide higher-quality pressure data, but field tests are constrained by operating costs, lost production during shut-in and test duration. For many oil and gas wells, the available data come mainly from routine production: rate and pressure both vary, measurement frequency is limited, and noise, missing measurements and operating changes are present. In these circumstances, the observed pressure changes contain both the reservoir response and the influence of production history, making direct constant-rate interpretation difficult." },
+      { "type": "p", "text": "To use such production records, RTA developed by combining decline analysis with flow theory. Normalization, material-balance time and type-curve analysis enable long-term production data to be used for reservoir evaluation and production forecasting. The material-balance-time equivalence has a clear theoretical foundation under the corresponding pseudosteady-state conditions. When this relationship is applied to transient flow or complex operating changes, particular attention must be paid to whether the equivalence conditions hold and whether the transformed curves faithfully reflect flow characteristics." },
+      { "type": "p", "text": "Two technical approaches are also used to handle variable-rate data. One selects a model or flow form first and interprets observations through superposition calculations. The other uses deconvolution to recover the response from rate and pressure histories before interpretation. The former must address the interdependence of model selection and flow diagnostics; the latter must address numerical solution, noise sensitivity and parameter selection." },
+      { "type": "p", "text": "VPTA follows the analytical-deconvolution approach and extends the PTA diagnostic and interpretation framework to production data analysis, with the aim of basing flow-regime identification on the recovered pressure response." }
+    ]
+  },
+  {
+    "title": "What are the main advantages of VPTA over traditional RTA?",
+    "shortTitle": "Advantages over RTA",
+    "blocks": [
+      { "type": "p", "text": "Its main advantage is to use flow-regime diagnostics as the basis for cross-validation with multiple characteristic curves, followed by targeted parameter analysis.", "emphasis": "Its main advantage is to use flow-regime diagnostics as the basis for cross-validation with multiple characteristic curves, followed by targeted parameter analysis." },
+      { "type": "p", "text": "Here, traditional RTA refers primarily to the type-curve approach based on material-balance time and normalized responses. These methods are convenient to compute, but during transient flow or substantial rate variation, the shape of transformed curves may reflect reservoir response, production history and time transformation simultaneously. The physical meaning of a particular slope or fitted shape therefore needs further verification." },
+      { "type": "p", "text": "VPTA retains the PTA framework, jointly using the pressure response function, its logarithmic-time derivative, and characteristic curves such as β and γ to diagnose candidate flow regimes and their transitions. Analysis intervals are then selected from the diagnostic results, followed by the corresponding straight-line checks and parameter estimation." },
+      { "type": "p", "text": "This method provides clearer diagnostic evidence for model selection, interval definition and parameter interpretation, reducing reliance on judgments based solely on one type-curve shape or goodness of fit. For data without credible boundary-dominated flow characteristics, appropriate analysis can still be performed using identified radial-flow, linear-flow or other characteristics, without prespecifying a boundary-flow interval merely to calculate reserves." },
+      { "type": "p", "text": "The advantage lies in the clearer connection between diagnostic evidence and parameter calculations. The parameters that can ultimately be determined still depend on the information in the data, identifiable flow regimes and model conditions." }
+    ]
+  },
+  {
+    "title": "How does the VPTA workflow differ from traditional methods, and why does this matter?",
+    "shortTitle": "Workflow and its value",
+    "blocks": [
+      { "type": "p", "text": "The basic sequence in VPTA is ‘recover the response first, diagnose flow next, then verify relationships and calculate parameters’.", "emphasis": "The basic sequence in VPTA is ‘recover the response first, diagnose flow next, then verify relationships and calculate parameters’." },
+      { "type": "p", "text": "The workflow includes:" },
+      { "type": "list", "items": [
+        { "text": "Prepare production data. Check the consistency of time, production rate and bottomhole pressure. Use production records to distinguish actual operating changes from measurement anomalies and establish the variables required for analysis.", "emphasis": "Prepare production data." },
+        { "text": "Recover the pressure response. Use the explicit deconvolution relationship to calculate the pressure response function and its derivative as the foundation for diagnostics.", "emphasis": "Recover the pressure response." },
+        { "text": "Perform integrated diagnostics. Jointly use pressure response, derivative, β, γ and other curves to identify candidate flow regimes and their corresponding time intervals.", "emphasis": "Perform integrated diagnostics." },
+        { "text": "Verify characteristic straight lines. Select the equivalent-time and coordinate relationships corresponding to candidate flow regimes, and check for stable, reasonable straight-line intervals.", "emphasis": "Verify characteristic straight lines." },
+        { "text": "Calculate and check parameters. Interpret straight-line slopes and intercepts together with relevant physical properties, and check consistency among different analysis results.", "emphasis": "Calculate and check parameters." }
+      ] },
+      { "type": "p", "text": "Compared with an approach that prespecifies a flow form, constructs the corresponding superposition time, and then checks whether the data form a straight line, VPTA places identification of the specific flow regime after response recovery. Compared with direct material-balance-time type-curve matching, VPTA adds integrated diagnostics and relationship verification based on the recovered response before parameter calculation." },
+      { "type": "p", "text": "The value of this sequence is that each parameter can be traced to its diagnostic characteristics, analysis interval and calculation relationship. For example, radial-flow parameters require radial-flow evidence, and reserves calculated using pseudosteady-state relationships require credible pseudosteady-state evidence. When the data are insufficient, the parameters that cannot yet be reliably constrained should be stated explicitly.", "emphasis": "The value of this sequence is that each parameter can be traced to its diagnostic characteristics, analysis interval and calculation relationship." },
+      { "type": "p", "text": "Gas-well analysis follows the same basic workflow but requires consistent pseudopressure and pseudotime variables, with iterative updates of reserves and related variables under the corresponding conditions." }
+    ]
+  },
+  {
+    "title": "What computational advantages does VPTA offer, and why is it fast?",
+    "shortTitle": "Explicit solution and speed",
+    "blocks": [
+      { "type": "p", "text": "VPTA recovers the response through explicit deconvolution based on analytical relationships, with direct calculation and fast computation as its distinctive features.", "emphasis": "VPTA recovers the response through explicit deconvolution based on analytical relationships, with direct calculation and fast computation as its distinctive features." },
+      { "type": "p", "text": "Common numerical deconvolution methods usually discretize the problem and estimate the pressure response using numerical techniques such as optimization and regularization. These calculations must manage relationships among errors, smoothing constraints and solver parameters." },
+      { "type": "p", "text": "VPTA instead connects production pressure drop, production rate and pressure response through explicit mathematical relationships. Under the corresponding approximation conditions, it directly recovers the response, reducing reliance on repeated numerical optimization and related solver controls. This makes it suitable for rapid production-data analysis, repeated checks of different data intervals, and batch processing of multiple wells." },
+      { "type": "p", "text": "Here, ‘analytical’ means that response recovery has a defined mathematical expression, while ‘explicit’ means that the calculation relationship directly yields the relevant quantity. Actual data processing may still involve smoothing and numerical differentiation; gas-well analysis may also require iterations to update fluid properties and reserves. Fast computation therefore primarily describes the core explicit response-recovery step. It does not mean that the entire workflow is free of iteration or that data noise disappears automatically." }
+    ],
+    "editorialNotes": ["The website may initially use the wording ‘explicit solution and fast computation’. Any specific speed-up factor should be supported by comparative results using a consistent data scale and computing conditions."]
+  },
+  {
+    "title": "What is the theoretical relationship between VPTA, PTA and RTA?",
+    "shortTitle": "Links to PTA and RTA",
+    "blocks": [
+      { "type": "p", "text": "Through a unified pressure-response relationship, VPTA connects the constant-rate expression of PTA with the equivalent expression of RTA under pseudosteady-state boundary-dominated flow.", "emphasis": "Through a unified pressure-response relationship, VPTA connects the constant-rate expression of PTA with the equivalent expression of RTA under pseudosteady-state boundary-dominated flow." },
+      { "type": "p", "text": "This relationship incorporates production pressure drop, current production rate, the pressure response function and its derivative, actual time and material-balance time into one mathematical expression. Under general variable-rate conditions, rate-normalized pressure drop is influenced by both reservoir response and production history, and generally cannot be equated directly to the unit-rate pressure response." },
+      { "type": "p", "text": "The relationship simplifies under two special conditions:" },
+      { "type": "list", "items": [
+        { "text": "Under constant-rate conditions, it returns to PTA. When the production rate is held constant from the corresponding analysis origin, material-balance time equals actual time and the corresponding correction term vanishes. Rate-normalized pressure drop becomes the unit-rate pressure response, giving the conventional constant-rate basic relationship of PTA.", "emphasis": "Under constant-rate conditions, it returns to PTA." },
+        { "text": "Under pseudosteady-state boundary-dominated flow, it yields the equivalent RTA relationship. During ideal pseudosteady-state flow in a closed system, the unit-rate pressure response can be expressed as a linear function of time. Substitution into the unified relationship establishes a corresponding linear connection between rate-normalized pressure drop and material-balance time, giving the equivalent constant-rate relationship used in traditional RTA.", "emphasis": "Under pseudosteady-state boundary-dominated flow, it yields the equivalent RTA relationship." }
+      ] },
+      { "type": "p", "text": "Thus, at the level of the basic response relationships described above, the constant-rate form of PTA and the pseudosteady-state equivalent form of RTA can be interpreted consistently within the VPTA framework. The corresponding RTA relationship can be regarded as a special case of VPTA under pseudosteady-state boundary-dominated flow." },
+      { "type": "image", "asset": "theory" },
+      { "type": "p", "text": "Here, boundary-dominated flow specifically refers to the pseudosteady-state stage satisfying the corresponding linear-response conditions; it must not be generalized to every flow regime affected by boundaries. The explicit relationship under general variable-rate conditions also remains subject to the model and approximation conditions used in its derivation." }
+    ]
+  },
+  {
+    "title": "What data are required for VPTA?",
+    "shortTitle": "Data requirements",
+    "blocks": [
+      { "type": "p", "text": "The basic inputs to VPTA are production-rate and bottomhole-pressure histories aligned in time. Calculating production pressure drop also requires initial reservoir pressure or a reference pressure consistent with the analysis model. Rate and pressure should use a common time reference, consistent units and measurement definitions, while retaining as much prior production history influencing the current response as possible.", "emphasis": "The basic inputs to VPTA are production-rate and bottomhole-pressure histories aligned in time." },
+      { "type": "p", "text": "Records of shut-in and restart, rate adjustments, interventions and changes in measurement methods are also recommended. These help distinguish actual production responses from measurement anomalies and prevent valid data from being removed during preprocessing." },
+      { "type": "p", "text": "The supporting information required depends on the analysis objective. For example, calculation of permeability, skin factor, reserves and other parameters may require effective thickness, fluid viscosity, formation volume factor, compressibility, and wellbore and completion parameters. Gas wells also require fluid-property data supporting pseudopressure and pseudotime calculations." },
+      { "type": "p", "text": "Production rate alone, without usable pressure data, is generally insufficient for the VPTA pressure-response recovery described here. If only wellhead pressure is available, first evaluate whether it can be converted to bottomhole pressure using an appropriate wellbore model, and consider how conversion errors affect diagnostics and parameter interpretation." },
+      { "type": "p", "text": "Data suitability depends on whether the data can resolve the target flow characteristics. It cannot be judged solely by the number of data points or the length of the production history." }
+    ]
+  },
+  {
+    "title": "What does ‘without prespecifying a flow regime’ mean? Does it eliminate model assumptions?",
+    "shortTitle": "Flow regimes and assumptions",
+    "blocks": [
+      { "type": "p", "text": "‘Without prespecifying a flow regime’ means that the data do not need to be classified as radial, linear or pseudosteady-state flow before the pressure response is recovered. VPTA first recovers the response from production-rate and pressure histories. It then identifies candidate flow regimes using pressure-response, derivative, β, γ and other curves, before selecting the corresponding analysis relationships for parameter calculation.", "emphasis": "‘Without prespecifying a flow regime’ means that the data do not need to be classified as radial, linear or pseudosteady-state flow before the pressure response is recovered." },
+      { "type": "p", "text": "This sequence reduces the dependence of response recovery on assumptions about specific flow regimes and allows flow characteristics to inform subsequent model selection. For example, an interval should be selected for radial-flow straight-line analysis only when diagnostics support radial flow, rather than prespecifying radial flow merely to calculate permeability or skin factor." },
+      { "type": "p", "text": "‘Without prespecifying a flow regime’ does not mean that there are no theoretical prerequisites. Response recovery must still satisfy the applicability conditions of the selected flow model, superposition relationship and explicit approximation. Parameter interpretation also requires well–reservoir models and physical-property data consistent with the diagnostic results." },
+      { "type": "p", "text": "VPTA changes the order of specific flow-regime identification and response recovery. Model assumptions and applicability conditions must still be stated explicitly." }
+    ]
+  },
+  {
+    "title": "Do rate fluctuations, frequent shut-ins and data noise affect VPTA analysis?",
+    "shortTitle": "Operating changes and noise",
+    "blocks": [
+      { "type": "p", "text": "Yes. VPTA is designed for variable-rate production data, but this does not mean that fluctuations of any magnitude or frequency can be handled with equal reliability.", "emphasis": "Yes. VPTA is designed for variable-rate production data, but this does not mean that fluctuations of any magnitude or frequency can be handled with equal reliability." },
+      { "type": "p", "text": "Actual operating changes must first be distinguished from measurement errors. Rate adjustments, shut-ins and restarts, and interventions are part of the actual production history and should be retained and interpreted using the records. Metering errors, time misalignment and instrument anomalies require checking and correction." },
+      { "type": "p", "text": "Pressure-response recovery and characteristic-curve calculations involve rates of change in the data, so differentiation may amplify noise. Data near abrupt rate changes or frequent shut-ins may also fail to satisfy the slowly varying approximation conditions adopted by the explicit relationship. During shut-in, the production rate is zero, and rate-normalized pressure drop and material-balance time cannot be calculated directly using production-segment formulas; the corresponding segmented or specialized treatment is required." },
+      { "type": "p", "text": "In practice, first check time alignment and measurement definitions, mark operating changes, and then select suitable smoothing scales and analysis intervals according to the data characteristics. Smoothing should preserve actual responses as far as possible, and the main diagnostic characteristics should be checked for persistence when the processing scale is changed. Information missing from incomplete measurements cannot be restored merely by interpolation." },
+      { "type": "p", "text": "Intervals clearly affected by noise, abrupt changes or missing data should receive less interpretive weight. Without reliable diagnostic evidence, flow regimes should not be forced into an interpretation and parameters should not be calculated." }
+    ]
+  },
+  {
+    "title": "How can the credibility of a VPTA analysis result be assessed?",
+    "shortTitle": "Assessing credibility",
+    "blocks": [
+      { "type": "p", "text": "A credible result should form a complete chain of evidence from data and response recovery through flow diagnostics to parameter calculation. Good curve fitting is one element of the checks; the following aspects also require examination:", "emphasis": "A credible result should form a complete chain of evidence from data and response recovery through flow diagnostics to parameter calculation." },
+      { "type": "list", "items": [
+        { "text": "Are the input data consistent? Do pressure, rate and time correspond? Are reference pressure and physical-property parameters reasonable, and is important production history complete?", "emphasis": "Are the input data consistent?" },
+        { "text": "Do the diagnostic characteristics support one another? Do pressure response, derivative, β, γ and other curves jointly support the candidate flow regime? Conflicts should be investigated rather than choosing just one curve to support a judgment.", "emphasis": "Do the diagnostic characteristics support one another?" },
+        { "text": "Are the characteristic straight lines stable? Is the candidate interval supported by enough data, and do slopes, intercepts and interpreted parameters remain reasonably stable when the interval is moderately adjusted?", "emphasis": "Are the characteristic straight lines stable?" },
+        { "text": "Does the result depend on particular processing choices? Do the main conclusions change substantially when smoothing scale, analysis origin or input parameters within a reasonable range are changed?", "emphasis": "Does the result depend on particular processing choices?" },
+        { "text": "Is the physical interpretation consistent? Are parameters compatible with geological, completion and production conditions, and can constraints from different flow regimes be reconciled?", "emphasis": "Is the physical interpretation consistent?" },
+        { "text": "Has the result been checked independently? Where possible, compare it with existing well tests, logs, other engineering information or data not used in the interpretation. The interpreted model can also be combined with the actual rate history to check its ability to reproduce measured pressure changes.", "emphasis": "Has the result been checked independently?" }
+      ] },
+      { "type": "p", "text": "These checks assess the result and define its applicability. For example, data that support radial-flow parameter analysis do not necessarily provide sufficient constraints on reserves." }
+    ]
+  }
+]
